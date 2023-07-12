@@ -26,6 +26,12 @@ final class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     func setupNaviBar() {
         title = "회원 목록"
         
