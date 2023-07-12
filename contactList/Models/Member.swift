@@ -31,9 +31,7 @@ struct Member {
     
     init(name: String?, age: Int?, phone: String?, address: String?) {
         
-        // 0 일때는 0, 0이 아니면 늘어난 숫자를 가지고 세팅함
-        self.memberId = Member.memberNumbers == 0 ? 0 : Member.memberNumbers
-        
+        self.memberId = Member.memberNumbers
         
         self.name = name
         self.age = age
