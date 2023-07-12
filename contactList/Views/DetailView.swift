@@ -246,6 +246,8 @@ class DetailView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .white
         setupStackView()
+        
+        memberIdTextField.delegate = self
     }
     
     // 필수 생성자 구현
