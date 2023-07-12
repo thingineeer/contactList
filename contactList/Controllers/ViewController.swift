@@ -17,8 +17,11 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
         
+        view.backgroundColor = .white
+        setupDatas()
+        setupTableView()
+        setupNaviBar()
         setupTableViewConstraints()
         
     }
@@ -36,7 +39,20 @@ final class ViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         // 네비게이션바 오른쪽 상단 버튼 설정
-        self.navigationItem.rightBarButtonItem = self.plusButton
+//        self.navigationItem.rightBarButtonItem = self.plusButton
+    }
+    
+    func setupDatas() {
+        memberListManager.makeMembersListDatas()
+    }
+    
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    
+        tableView.rowHeight = 60
+        
+        tableView.register(MyTableViewCell.self, forCellReuseIdentifier: "MemberCell")
     }
     
     func setupTableViewConstraints() {
@@ -62,8 +78,40 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MyTableViewCell
+        
+        // 멤버 선언하기 전
+//        cell.mainImageView.image = memberListManager[indexPath.row].memberImage
+//        cell.memberNameLabel.text = memberListManager[indexPath.row].name
+//        cell.addressLabel.text = memberListManager[indexPath.row].address
+        
+        // MyTableViewCell 에 멤버 선언 코드 추가 후
+        cell.member = memberListManager[indexPath.row]
+        
+        
+        cell.selectionStyle = .none
+        
+        
+        return cell
     }
     
+}
+
+
+extension ViewController:UITableViewDelegate {
+    
+    // cell 선택 할시 메서드 통해 동작 전달
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailVC = DetailViewController()
+        let array = memberListManager.getMemberList()
+        detailVC.member = array[indexPath.row] 
+        
+        
+        
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
 }
 

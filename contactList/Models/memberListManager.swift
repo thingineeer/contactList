@@ -11,6 +11,7 @@ final class MemberListManager {
     
     private var membersList : [Member] = []
     
+    // 데이터 받기
     func makeMembersListDatas() {
         
         membersList = [
@@ -38,6 +39,17 @@ final class MemberListManager {
     // 멤버 업데이트
     func updateMemberInfo(index: Int, _ member:Member) {
         membersList[index] = member
+    }
+    
+    // 특정 멤버 얻기 (굳이 필요 없지만, 서브스크립트 구현해보기)
+    subscript(index: Int) -> Member {
+        get {
+            return membersList[index]
+        }
+        
+        set {
+            membersList[index] = newValue
+        }
     }
     
     
