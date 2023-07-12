@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class memberListManager {
+final class MemberListManager {
     
     private var membersList : [Member] = []
     
