@@ -15,7 +15,7 @@ final class MemberListManager {
     func makeMembersListDatas() {
         
         membersList = [
-            Member(name: "홍길동", age: 20, phone: "010-1111-2222", address: "서울"),
+            Member(name: "이명진", age: 27, phone: "010-1111-2222", address: "서울"),
             Member(name: "임꺽정", age: 23, phone: "010-2222-3333", address: "서울"),
             Member(name: "스티브", age: 50, phone: "010-1234-1234", address: "미국"),
             Member(name: "쿡", age: 30, phone: "010-7777-7777", address: "캘리포니아"),
