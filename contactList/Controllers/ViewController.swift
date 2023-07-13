@@ -43,7 +43,7 @@ final class ViewController: UIViewController {
 //
     
     func setupNaviBar() {
-        title = "회원 목록"
+        title = "연락처 목록"
         
         // 네비게이션바 설정관련
         let appearance = UINavigationBarAppearance()
