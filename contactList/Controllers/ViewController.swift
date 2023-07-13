@@ -33,11 +33,14 @@ final class ViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData() // 데이터 변경한 것이 다시 업데이트 됌
-    }
+//
+//    // 유저가 업데이트를 안해도 리로드 되는게 문제
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        tableView.reloadData() // 데이터 변경한 것이 다시 업데이트 됌
+//    }
+//
     
     func setupNaviBar() {
         title = "회원 목록"
@@ -131,6 +134,7 @@ extension ViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let detailVC = DetailViewController()
+        detailVC.delegate  = self // 커스텀 델리게이트
         let array = memberListManager.getMemberList()
         detailVC.member = array[indexPath.row] 
         
@@ -139,5 +143,20 @@ extension ViewController:UITableViewDelegate {
         navigationController?.pushViewController(detailVC, animated: true)
         
     }
+}
+
+extension ViewController: MemberDelegate { // 커스텀 델리게이트
+    
+    func addNewMember(_ member: Member) {
+        memberListManager.makeNewMembers(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
+    }
+    
+    
 }
 

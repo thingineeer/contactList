@@ -7,6 +7,19 @@
 
 import UIKit
 
+// 프로토콜 생성
+protocol MemberDelegate: AnyObject { // class에서만 사용 가능한 프로토콜
+    
+    func addNewMember(_ member: Member)
+    func update(index: Int, _ member: Member)
+    
+}
+
+
+
+
+
+
 struct Member {
     
     lazy var memberImage: UIImage? = {
