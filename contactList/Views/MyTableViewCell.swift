@@ -96,6 +96,8 @@ class MyTableViewCell: UITableViewCell {
     }
     
     func setConstraints() {
+        
+        // cell 안의 이미지뷰
         NSLayoutConstraint.activate([
             mainImageView.heightAnchor.constraint(equalToConstant: 40),
             mainImageView.widthAnchor.constraint(equalToConstant: 40),
@@ -106,9 +108,11 @@ class MyTableViewCell: UITableViewCell {
             mainImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
         
+        // 이름
         NSLayoutConstraint.activate([
             memberNameLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
+        
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 20),
