@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import SwiftUI
 
 final class ViewController: UIViewController {
 
@@ -159,4 +160,29 @@ extension ViewController: MemberDelegate { // 커스텀 델리게이트
     
     
 }
+
+// MARK: - 뷰 보기
+
+//struct Preview: UIViewControllerRepresentable {
+//
+//    // 여기 ViewController를 변경해주세요
+//    func makeUIViewController(context: Context) -> UIViewController {
+//        ViewController()
+//    }
+//
+//    func updateUIViewController(_ uiView: UIViewController,context: Context) {
+//        // leave this empty
+//    }
+//}
+//
+//struct ViewController_PreviewProvider: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            Preview()
+//                .edgesIgnoringSafeArea(.all)
+//                .previewDisplayName("Preview")
+//                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro"))
+//        }
+//    }
+//}
 
