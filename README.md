@@ -1,6 +1,6 @@
 # contactList
 
-Code 구현
+Code
 UIKit
 ---
 
